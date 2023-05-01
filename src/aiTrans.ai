@@ -1,0 +1,38 @@
+The first line of the file should be this: #!/usr/bin/python
+After this line, import the os, argparse and sys packages.
+From the openaiConnector package, import all functions.
+
+Write comments as documentation on top of each function, but not inside functions.
+
+Write code to parse arguments:
+    Store the string argument -s in the variable 'source'
+    Store the string argument -l in the variable 'language'. By default, this argument is 'python'.
+    Store the boolean argument -a in the variable 'allfile'.
+
+Now, define a function that takes a string 'code' as parameter:
+    The function go through each line of the variable 'code' and if the line begins with the string '```', it removes the line.
+    The in return the new string with all lines that begin with the string '```' removed.
+
+Next, import the variable 'api_key' from the environment variable 'OPENAI_API_KEY'. If the variable api_key is not 'None', print the message 'Loaded OpenAI API key from Environment' to stderr. Print this message to stderr, not stdout.
+Else, if the variable 'api_key' is None, then load the variable 'api_key' from the file 'api-key.txt', then print the message 'Loaded OpenaI API key from file.' to stderr. Print this to stderr, not stdout.
+
+
+Now, call the function check_api_key_validity() with api_key as parameter.
+
+Now, open the file in the variable 'source' and assign it to variable 's'.
+
+If the variable 'allfile' is true, then: 
+    Read the whole file on variable 's' into the variable 'l'
+    Assemble the string "Write the raw valid L1 code for this, ready to be executed, please include comments on each function:\n\n L2", replace string L1 with variable 'language' and L2 with variable 'l'. Assign this string to variable 'prompt'.
+    Call the call_AI_chatGPT(prompt) function and assign the output to variable 'code'.
+    Remove all the code blocks by calling the function that removes the '```' lines. Dont forget this, is important to remove the code blocks.
+    Finally, print the variable 'code' stripped to stdout.
+Else, if the variable 'allfile' is false, then:
+    keywords=['assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'lambda', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+    Go through each line of the file in the variable 's'. If the line begins with a python keyword or the character '#', then just print it to stdout.
+    Else, assemble the string "Write the raw valid L1 code for this, ready to be embedded into another L1 code file:\n L2" replace string L1 with variable 'language' and L2 with the line. Assign this string to variable 'prompt'.
+    Call the call_AI_chatGPT(prompt) function and assign the output to variable 'code'.
+    Remove all the code blocks by calling the function that removes the '```' lines. Dont forget this, is important to remove the code blocks.
+    Finally, print the variable 'code' to stdout.
+
+

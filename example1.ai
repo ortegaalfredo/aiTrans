@@ -1,0 +1,15 @@
+Give me a list of 10 existing countries. Put them in a variable named A.
+
+for c in A:
+    print the variable c
+
+I=1
+Increase variable 'I'
+Add two to variable 'I'
+print the variable 'I'
+Write a poem about transpilers, put it in a variable named 'poem'
+print the variable poem
+
+Write a python function named sum that add two to the argument
+
+Call the sum function with the argument I and print the result

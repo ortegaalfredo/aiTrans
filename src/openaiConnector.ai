@@ -1,0 +1,17 @@
+Import the openai and the sys package.
+
+Write comments as documentation on top of each function, but not inside functions.
+
+Define a function named check_api_key_validity() that takes an API key as input:
+The function attempts to set the API key using openai.api_key. Do not call any other function.
+If the API key is valid, the function prints a message indicating that the key is valid to the standard error stream using print("OpenAI API key is valid",file=sys.stderr). 
+If the API key is invalid, the function catches an openai.OpenAIError exception and prints a message indicating that the key is invalid to the standard error stream using print("Invalid OpenAI API key",file=sys.stderr) before exiting the program using exit(). 
+
+Define a function named call_AI_chatGPT() that takes a prompt as input, and follow these 7 steps: 
+1. Set the message dictionary as this: messages =[ {'role':'system','content':'You are a excellent programmer. Write the code to execute the given task. Always write only the raw code and nothing more, no quotes. Never write english, nor code delimiters.'}, {'role':'user','content':prompt}]
+2. Set the model parameter exactly to 'gpt-3.5-turbo', the temperature to 0, and max_tokens to 2048 tokens. 
+3. Call openai.ChatCompletion.create(messages=messages,model=model,temperature=temperature,max_tokens=max_tokens) and put the result in the variable 'response'.
+4. Set the response variable to response.choices[0]
+5. set the response variable to response['message']
+6. set the response variable to response['content']
+7. Return the response variable.

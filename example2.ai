@@ -1,0 +1,6 @@
+print a message welcoming the user to the example script #2
+
+Write code to parse arguments. If the argument is "-a" variable 'A' is true.
+
+If the variable 'A' is true then write the message "Turbo activated", else write "Too bad, turbo deactivated"
+
